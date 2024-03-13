@@ -97,4 +97,25 @@ mod tests {
         ))
         .is_ok());
     }
+
+    /// Ensure that we can deserialize a root.json file that has pem-encoded ECDSA keys. This uses
+    /// sigstore's root.json file taken from here:
+    /// `<https://github.com/sigstore/sigstore-rs/blob/8a269a3/trust_root/prod/root.json>`
+    #[test]
+    fn ecdsa_pem_encoded_keys() {
+        assert!(serde_json::from_str::<Signed<Root>>(include_str!(
+            "../../tests/data/pem-encoded-ecdsa-sig-keys/root.json"
+        ))
+        .is_ok());
+    }
+    /// Ensure that we can deserialize a root.json file that has ECDSA keys with new type ecdsa. This uses
+    /// sigstore's root.json file taken from here:
+    /// `<https://github.com/sigstore/root-signing/blob/d3738d62e92580b5b928d6212c927084ada2bfee/repository/repository/9.root.json>`
+    #[test]
+    fn ecdsa_new_type_keys() {
+        assert!(serde_json::from_str::<Signed<Root>>(include_str!(
+            "../../tests/data/ecdsa-new-type-sig-keys/root.json"
+        ))
+        .is_ok());
+    }
 }
