@@ -14,7 +14,7 @@ aws-sdk-rust = ["aws-sdk-rust-rustls"]
 aws-sdk-rust-rustls = ["aws-config/rustls", "aws-sdk-kms/rustls"]
 
 [dependencies]
-tough = { version = "0.17", path = "../tough", features = ["http"] }
+tough = { version = "0.17", path = "../tough" }
 ring = { version = "0.17", features = ["std"] }
 aws-sdk-kms = "1"
 aws-config = "1"

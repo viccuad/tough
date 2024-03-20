@@ -1,7 +1,6 @@
 mod test_utils;
 
 /// Instead of guarding every individual thing with `#[cfg(feature = "http")]`, use a module.
-#[cfg(feature = "http")]
 mod http_happy {
     use crate::test_utils::{read_to_end, test_data};
     use httptest::{matchers::*, responders::*, Expectation, Server};
@@ -93,7 +92,6 @@ mod http_happy {
     }
 }
 
-#[cfg(feature = "http")]
 #[cfg(feature = "integ")]
 mod http_integ {
     use crate::test_utils::test_data;
